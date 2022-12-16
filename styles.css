@@ -1,0 +1,149 @@
+:root {
+    font-size: 18pt;
+    font-family: "Lucidia Handwriting";
+    color: white;
+}
+
+body {
+    background-image: url(https://images.alphacoders.com/203/203543.jpg);
+    user-select: none;
+}
+
+input, input:focus {
+    border: 1px solid transparent;
+    background-color: transparent;
+    padding: 0.2rem;
+    color: inherit;
+    box-sizing: border-box;
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    text-align: center;
+    user-select: auto;
+}
+
+input#ingredientName {
+    font-size: 1.2rem;
+    border-bottom: 1px solid darkgray;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+div.effectsContainer {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+
+input.ingredientEffect {
+    width: 45%;
+    margin: 0.5em;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, .80);
+    width: 800px;
+    padding: 2rem;
+    border: 1.5px solid lightgray;
+    margin: 1rem auto;
+}
+
+
+
+#failedCombinationInput {
+    --failedCombinationInputPadding: 0.5em;
+
+    font-size: 0.75rem;
+    padding: var(--failedCombinationInputPadding);
+    margin: 0 calc(-1 * var(--failedCombinationInputPadding));
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid lightgray;
+}
+
+.combinationHistory {
+    display: flex;
+    justify-content:space-between;
+}
+
+.failedCombinationInputSection {
+
+}
+
+.failedEffectsSection {
+
+}
+
+ul {
+    min-width: 200px;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    color: darkgray;
+    font-size: 0.6rem;
+    padding: 0.1em 0;
+    width: 75%;
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+ul#failedCombinations li span {
+    position: absolute;
+    top:0;
+    right:0;
+    width: 25px;
+    text-align: center;
+    color: transparent;
+    justify-content: space-between;
+    margin-top: 0.2em;
+    transition: opacity 250ms;
+    transition: color 250ms;
+}
+
+
+ul#failedCombinations li:hover {
+    color: white;
+    cursor: pointer;
+    transition: color 500ms;
+}
+
+ul#failedCombinations li:hover span {
+    color: inherit;
+    opacity: 50%
+}
+ul#failedCombinations li span:hover {
+    opacity: 100%;
+}
+
+
+div.bestMatchContainer {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#bestMatch {
+    color: darkgray;
+    font-size: 0.6rem;
+}
+
+button#nextMatch {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: darkgray;
+    margin-right: 0.25em;
+}
+button#nextMatch:hover {
+    color: white;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.inactive {
+    visibility: hidden;
+}

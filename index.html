@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html dir='ltr' lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+
+    <!-- Misc -->
+    <title>Skyrim Alchemy</title>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/91368808da.js" crossorigin="anonymous"></script>
+
+    <!-- Script -->
+    <script src="./script.js" defer></script>
+</head>
+
+<body id='document_body'>
+    <aside class="ingredientContainer container">
+        <input list="possibleIngredients" type="text" id="ingredientName" placeholder="Ingredient" spellcheck="false" autofocus>
+
+        <div class="effectsContainer">
+            <input list="possibleEffects" type="text" class='ingredientEffect' id="effect0" placeholder="Unknown">
+            <input list="possibleEffects" type="text" class='ingredientEffect' id="effect1" placeholder="Unknown">
+            <input list="possibleEffects" type="text" class='ingredientEffect' id="effect2" placeholder="Unknown">
+            <input list="possibleEffects" type="text" class='ingredientEffect' id="effect3" placeholder="Unknown">
+        </div>
+    </aside>
+
+    <section class="container">
+        <div class="bestMatchContainer">
+            <button type="button" name="button" id="nextMatch" class="inactive"><i class="fa-solid fa-forward"></i></button>
+            <span id="bestMatch">
+                <!-- &#8203 -->
+            </span>
+        </div>
+        <div class="combinationHistory">
+            <div class="failedCombinationInputSection">
+                <label for="failedCombination">Add a Failed Combination</label>
+                <input list="possibleIngredients" type="text" name="failedCombination" id='failedCombinationInput'>
+                <ul id='failedCombinations'>
+
+                </ul>
+            </div>
+            <div class="untestedEffectsSection">
+                <span>Untested Effects</span>
+                <ul id="untestedEffectsList">
+
+                </ul>
+            </div>
+            <div class="failedEffectsSection">
+                <span>Failed Effects</span>
+                <ul id="failedEffectsList">
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <datalist id="possibleEffects">
+    <option value="Cure Disease">
+    <option value="Cure Poison">
+    <option value="Damage Health">
+    <option value="Damage Magicka">
+    <option value="Damage Magicka Regen">
+    <option value="Damage Stamina">
+    <option value="Damage Stamina Regen">
+    <option value="Fear">
+    <option value="Fortify Alteration">
+    <option value="Fortify Barter">
+    <option value="Fortify Block">
+    <option value="Fortify Carry Weight">
+    <option value="Fortify Conjuration">
+    <option value="Fortify Destruction">
+    <option value="Fortify Enchanting">
+    <option value="Fortify Health">
+    <option value="Fortify Heavy Armor">
+    <option value="Fortify Illusion">
+    <option value="Fortify Light Armor">
+    <option value="Fortify Lockpicking">
+    <option value="Fortify Magicka">
+    <option value="Fortify Marksman">
+    <option value="Fortify One-handed">
+    <option value="Fortify Pickpocket">
+    <option value="Fortify Restoration">
+    <option value="Fortify Smithing">
+    <option value="Fortify Sneak">
+    <option value="Fortify Stamina">
+    <option value="Fortify Two-handed">
+    <option value="Frenzy">
+    <option value="Invisibility">
+    <option value="Light">
+    <option value="Lingering Damage Health">
+    <option value="Lingering Damage Magicka">
+    <option value="Lingering Damage Stamina">
+    <option value="Night Eye">
+    <option value="Paralysis">
+    <option value="Ravage Health">
+    <option value="Ravage Magicka">
+    <option value="Ravage Stamina">
+    <option value="Regenerate Health">
+    <option value="Regenerate Magicka">
+    <option value="Regenerate Stamina">
+    <option value="Resist Fire">
+    <option value="Resist Frost">
+    <option value="Resist Magic">
+    <option value="Resist Poison">
+    <option value="Resist Shock">
+    <option value="Restore Health">
+    <option value="Restore Magicka">
+    <option value="Restore Stamina">
+    <option value="Slow">
+    <option value="Spell Absorption">
+    <option value="Waterbreathing">
+    <option value="Weakness to Fire">
+    <option value="Weakness to Frost">
+    <option value="Weakness to Magic">
+    <option value="Weakness to Poison">
+    <option value="Weakness to Shock">
+    </datalist>
+
+    <datalist id="possibleIngredients">
+        <option value="Abecean Longfin">
+        <option value="Ancestor Moth Wing">
+        <option value="Ash Creep Cluster">
+        <option value="Ash Hopper Jelly">
+        <option value="Ashen Grass Pod">
+        <option value="Bear Claws">
+        <option value="Bee">
+        <option value="Beehive Husk">
+        <option value="Bleeding Crown">
+        <option value="Blisterwort">
+        <option value="Blue Butterfly Wing">
+        <option value="Blue Dartwing">
+        <option value="Blue Mountain Flower">
+        <option value="Boar Tusk">
+        <option value="Bone Meal">
+        <option value="Briar Heart">
+        <option value="Burnt Spriggan Wood">
+        <option value="Butterfly Wing">
+        <option value="Canis Root">
+        <option value="Charred Skeever Hide">
+        <option value="Chaurus Eggs">
+        <option value="Chaurus Hunter Antennae">
+        <option value="Chicken's Egg">
+        <option value="Creep Cluster">
+        <option value="Crimson Nirnroot">
+        <option value="Cyrodilic Spadetail">
+        <option value="Daedra Heart">
+        <option value="Deathbell">
+        <option value="Dragon's Tongue">
+        <option value="Dwarven Oil">
+        <option value="Ectoplasm">
+        <option value="Elves Ear">
+        <option value="Emperor Parasol Moss">
+        <option value="Eye of Sabre Cat">
+        <option value="Falmer Ear">
+        <option value="Felsaad Tern Feathers">
+        <option value="Fire Salts">
+        <option value="Fly Amanita">
+        <option value="Frost Mirriam">
+        <option value="Frost Salts">
+        <option value="Garlic">
+        <option value="Giant Lichen">
+        <option value="Giant's Toe">
+        <option value="Gleamblossom">
+        <option value="Glow Dust">
+        <option value="Glowing Mushroom">
+        <option value="Grass Pod">
+        <option value="Hagraven Claw">
+        <option value="Hagraven Feathers">
+        <option value="Hanging Moss">
+        <option value="Hawk Beak">
+        <option value="Hawk Feathers">
+        <option value="Hawk's Egg">
+        <option value="Histcarp">
+        <option value="Honeycomb">
+        <option value="Human Flesh">
+        <option value="Human Heart">
+        <option value="Ice Wraith Teeth">
+        <option value="Imp Stool">
+        <option value="Jazbay Grapes">
+        <option value="Juniper Berries">
+        <option value="Large Antlers">
+        <option value="Lavender">
+        <option value="Luna Moth Wing">
+        <option value="Moon Sugar">
+        <option value="Mora Tapinella">
+        <option value="Mudcrab Chitin">
+        <option value="Namira's Rot">
+        <option value="Netch Jelly">
+        <option value="Nightshade">
+        <option value="Nirnroot">
+        <option value="Nordic Barnacle">
+        <option value="Orange Dartwing">
+        <option value="Pearl">
+        <option value="Pine Thrush Egg">
+        <option value="Poison Bloom">
+        <option value="Powdered Mammoth Tusk">
+        <option value="Purple Mountain Flower">
+        <option value="Red Mountain Flower">
+        <option value="River Betty">
+        <option value="Rock Warbler Egg">
+        <option value="Sabre Cat Tooth">
+        <option value="Salmon Roe">
+        <option value="Salt Pile">
+        <option value="Scaly Pholiota">
+        <option value="Scathecraw">
+        <option value="Silverside Perch">
+        <option value="Skeever Tail">
+        <option value="Slaughterfish Egg">
+        <option value="Slaughterfish Scales">
+        <option value="Small Antlers">
+        <option value="Small Pearl">
+        <option value="Snowberries">
+        <option value="Spawn Ash">
+        <option value="Spider Egg">
+        <option value="Spriggan Sap">
+        <option value="Swamp Fungal Pod">
+        <option value="Taproot">
+        <option value="Thistle Branch">
+        <option value="Torchbug Thorax">
+        <option value="Trama Root">
+        <option value="Troll Fat">
+        <option value="Tundra Cotton">
+        <option value="Vampire Dust">
+        <option value="Void Salts">
+        <option value="Wheat">
+        <option value="White Cap">
+        <option value="Wisp Wrappings">
+    </datalist>
+</body>
+</html>
